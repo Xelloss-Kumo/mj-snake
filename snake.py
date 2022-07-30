@@ -12,13 +12,29 @@ class cube(object):
     w = 500
 
     def __init__(self, start, dirnx=1, dirny=0, color=(255, 0, 0)):
-        pass
+        self.pos = start
+        self.dirnx = 1
+        self.dirny = 0
+        self.color = color
 
     def move(self, dirnx, dirny):
         pass
 
     def draw(self, surface, eyes=False):
-        pass
+        dis = self.w // self.rows  # Width/Height of each cube
+        i = self.pos[0]  # Current row
+        j = self.pos[1]  # Current Column
+
+        pygame.draw.rect(surface, self.color, (i * dis + 1, j * dis + 1, dis - 2, dis - 2))
+        # By multiplying the row and column value of our cube by the width and height of each cube we can determine where to draw it
+
+        if eyes:  # Draws the eyes
+            centre = dis // 2
+            radius = 3
+            circleMiddle = (i * dis + centre - radius, j * dis + 8)
+            circleMiddle2 = (i * dis + dis - radius * 2, j * dis + 8)
+            pygame.draw.circle(surface, (0, 0, 0), circleMiddle, radius)
+            pygame.draw.circle(surface, (0, 0, 0), circleMiddle2, radius)
 
 
 class snake(object):
@@ -45,7 +61,11 @@ class snake(object):
         pass
 
     def draw(self, surface):
-        pass
+        for i, c in enumerate(self.body):
+            if i == 0:  # for the first cube in the list we want to draw eyes
+                c.draw(surface, True)  # adding the true as an argument will tell us to draw eyes
+            else:
+                c.draw(surface)  # otherwise we will just draw a cube
 
 
 def drawGrid(w, rows, surface):
@@ -62,10 +82,11 @@ def drawGrid(w, rows, surface):
 
 
 def redrawWindow(surface):
-    global rows, width
-    surface.fill((0,0,0))  # Fills the screen with black
-    drawGrid(width, rows, surface)  # Will draw our grid lines
-    pygame.display.update()  # Updates the screen
+    global rows, width, s  # NEW
+    surface.fill((0,0,0))
+    s.draw(surface)  # NEW
+    drawGrid(width,rows, surface)
+    pygame.display.update()
 
 
 def randomSnack(rows, item):
