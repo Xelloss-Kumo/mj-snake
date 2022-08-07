@@ -17,9 +17,13 @@ class cube(object):
         self.dirny = 0
         self.color = color
 
+    # On va donc bouger dans les direction selon l'axe x et l'axe y
     def move(self, dirnx, dirny):
+        # on défini notre var dirnx selonc e qui est fournit à la méthode
         self.dirnx = dirnx
+        # on défini notre var dirny selonc e qui est fournit à la méthode
         self.dirny = dirny
+        # on va changer la position de notre cube selon les directions fournies
         self.pos = (self.pos[0] + self.dirnx, self.pos[1] + self.dirny)  # change our position
 
     def draw(self, surface, eyes=False):
@@ -53,14 +57,20 @@ class snake(object):
         self.dirnx = 0
         self.dirny = 1
 
+    # On va coder notre method move
     def move(self):
+        # on va récupérer les event qui se passe dans notre fenetre pygame et agir en conséquence
         for event in pygame.event.get():
+            # ici si on a l'event quit on ferme la fenetre (donc si on ferme sur la croix)
             if event.type == pygame.QUIT:
                 pygame.quit()
 
+            # maintenant on va récupérer les touches pressées sur le clavier et définir une action pr celles qui nous interessent
             keys = pygame.key.get_pressed()
 
             for key in keys:
+                # si on presse la fleche gauche on va donc définir nos direction vers la gauche (dirnx -1 et dirny 0)
+                # ensuite on définit vers ou la tête doit tourner
                 if keys[pygame.K_LEFT]:
                     self.dirnx = -1
                     self.dirny = 0
@@ -81,6 +91,7 @@ class snake(object):
                     self.dirny = 1
                     self.turns[self.head.pos[:]] = [self.dirnx, self.dirny]
 
+        # Le body du snake est constitué de n cubes, il faut déterminer la nouvelle position de chacun d'entre eux
         for i, c in enumerate(self.body):  # Loop through every cube in our body
             p = c.pos[:]  # This stores the cubes position on the grid
             if p in self.turns:  # If the cubes current position is one where we turned
