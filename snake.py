@@ -128,15 +128,18 @@ def drawGrid(w, rows, surface):
         pygame.draw.line(surface, (255,255,255), (0,y),(w,y))
 
 
+# maintenant qu'on rajoute un element dans notre jeu, le snack, il faut le répercuter dans le redrawWindow
 def redrawWindow(surface):
     global rows, width, s, snack  # NEW
     surface.fill((0,0,0))
-    s.draw(surface)  # NEW
+    s.draw(surface)
     snack.draw(surface)  # NEW
     drawGrid(width,rows, surface)
     pygame.display.update()
 
 
+# va générer un x et un y pour positionner notre cube snack sur notre grille
+# il est important de générer le snack à un endroit ou ne se situe pas le snake, c'est pour ça qu'on fournit l'information en input de la method
 def randomSnack(rows, item):
     positions = item.body  # Get all the posisitons of cubes in our snake
 
@@ -165,6 +168,7 @@ def main():
     win = pygame.display.set_mode((width, height))  # Creates our screen object
 
     s = snake((255, 0, 0), (10, 10))  # Creates a snake object which we will code later
+    # on crèe notre cube snack en donnant en input le snake donc toutes les pos de ce dernier et la couleur du snack
     snack = cube(randomSnack(rows, s), color=(0, 255, 0))
 
     clock = pygame.time.Clock()  # creating a clock object
@@ -175,6 +179,7 @@ def main():
         pygame.time.delay(50)  # This will delay the game so it doesn't run too quickly
         clock.tick(10)  # Will ensure our game runs at 10 FPS
         s.move()  # NEW
+        # va consomemr le snack et en créer un nouveau
         if s.body[0].pos == snack.pos:  # Checks if the head collides with the snack
             s.addCube()  # Adds a new cube to the snake
             snack = cube(randomSnack(rows, s), color=(0, 255, 0))  # creates a new snack object
