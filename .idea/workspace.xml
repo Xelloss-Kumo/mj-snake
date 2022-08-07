@@ -31,6 +31,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a7c627-3c17-4c51-8742-9bb9df28e4eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snake.py" beforeDir="false" afterPath="$PROJECT_DIR$/snake.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +49,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/python_main_structure" />
+        <entry key="$PROJECT_DIR$" value="feature/python_part1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -118,21 +119,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1659211096123" />
-    <state width="1899" height="204" key="GridCell.Tab.0.bottom" timestamp="1659213572025">
+    <state width="1899" height="204" key="GridCell.Tab.0.bottom" timestamp="1659905751144">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="204" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1659213572025" />
-    <state width="1899" height="204" key="GridCell.Tab.0.center" timestamp="1659213572024">
+    <state width="1899" height="204" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1659905751144" />
+    <state width="1899" height="204" key="GridCell.Tab.0.center" timestamp="1659905751144">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="204" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1659213572024" />
-    <state width="1899" height="204" key="GridCell.Tab.0.left" timestamp="1659213572024">
+    <state width="1899" height="204" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1659905751144" />
+    <state width="1899" height="204" key="GridCell.Tab.0.left" timestamp="1659905751144">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="204" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1659213572024" />
-    <state width="1899" height="204" key="GridCell.Tab.0.right" timestamp="1659213572024">
+    <state width="1899" height="204" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1659905751144" />
+    <state width="1899" height="204" key="GridCell.Tab.0.right" timestamp="1659905751144">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="204" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1659213572024" />
+    <state width="1899" height="204" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1659905751144" />
   </component>
 </project>

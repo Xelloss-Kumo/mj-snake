@@ -11,6 +11,7 @@ class cube(object):
     rows = 20
     w = 500
 
+    # on va définir notre créationd 'un objet cube, nous avons donc la position de départ, les directions vers lesquels bouge notre cube et la couleur
     def __init__(self, start, dirnx=1, dirny=0, color=(255, 0, 0)):
         self.pos = start
         self.dirnx = 1
@@ -20,14 +21,21 @@ class cube(object):
     def move(self, dirnx, dirny):
         pass
 
+    # pour dessiner notre cube, on détermine la longueur du coté du carré (dis)
+    # on a i qui réprésente la ligne dans laquelle est le cube et j qui est pr la colonne
     def draw(self, surface, eyes=False):
         dis = self.w // self.rows  # Width/Height of each cube
         i = self.pos[0]  # Current row
         j = self.pos[1]  # Current Column
 
+        # pr la method rect ici on va fournir la surface sur laquelle dessiner, la couleur du cube
+        # ainsi que la position dans la fenetre ou on veut que ça soit dessiné
+        # et enfin le dis-2 (pixel) pour déterminer quelle place colorier
         pygame.draw.rect(surface, self.color, (i * dis + 1, j * dis + 1, dis - 2, dis - 2))
         # By multiplying the row and column value of our cube by the width and height of each cube we can determine where to draw it
 
+        # on veut que notre serpent ait des yeux sur sa tete bien entendu, donc si on a en input un eyes=True on va les dessiner
+        # pr se faire on part du centre et on dessiner 2 petits cercles dans le cube
         if eyes:  # Draws the eyes
             centre = dis // 2
             radius = 3
@@ -60,6 +68,8 @@ class snake(object):
     def addCube(self):
         pass
 
+    # dans notre snake que l'ond essine on veut que pour chaque c (=cube) du body du serpent on dessine le cube associé
+    # et si on est en postion 0 donc première position de notre liste de cubes, on est la tête et on a donc les yeux
     def draw(self, surface):
         for i, c in enumerate(self.body):
             if i == 0:  # for the first cube in the list we want to draw eyes
@@ -82,8 +92,10 @@ def drawGrid(w, rows, surface):
 
 
 def redrawWindow(surface):
+    # ici on va avoir en plus notre snake à dessiner donc on rajoute notre variable s
     global rows, width, s  # NEW
     surface.fill((0,0,0))
+    # on va donc appelé la method draw de notre snake
     s.draw(surface)  # NEW
     drawGrid(width,rows, surface)
     pygame.display.update()
@@ -97,6 +109,7 @@ def message_box(subject, content):
     pass
 
 
+# Ici rien ne change car on a déjà notre snake s en variable globale qui est maintenant utilisée dans notre redrawWindow
 def main():
     global width, rows, s
     width = 500  # Width of our screen
