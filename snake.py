@@ -129,15 +129,27 @@ def drawGrid(w, rows, surface):
 
 
 def redrawWindow(surface):
-    global rows, width, s  # NEW
+    global rows, width, s, snack  # NEW
     surface.fill((0,0,0))
     s.draw(surface)  # NEW
+    snack.draw(surface)  # NEW
     drawGrid(width,rows, surface)
     pygame.display.update()
 
 
 def randomSnack(rows, item):
-    pass
+    positions = item.body  # Get all the posisitons of cubes in our snake
+
+    while True:  # Keep generating random positions until we get a valid one
+        x = random.randrange(rows)
+        y = random.randrange(rows)
+        if len(list(filter(lambda z: z.pos == (x, y), positions))) > 0:
+            # This wll check if the position we generated is occupied by the snake
+            continue
+        else:
+            break
+
+    return (x, y)
 
 
 def message_box(subject, content):
@@ -145,7 +157,7 @@ def message_box(subject, content):
 
 
 def main():
-    global width, rows, s
+    global width, rows, s, snack
     width = 500  # Width of our screen
     height = 500  # Height of our screen
     rows = 20  # Amount of rows
@@ -153,6 +165,7 @@ def main():
     win = pygame.display.set_mode((width, height))  # Creates our screen object
 
     s = snake((255, 0, 0), (10, 10))  # Creates a snake object which we will code later
+    snack = cube(randomSnack(rows, s), color=(0, 255, 0))
 
     clock = pygame.time.Clock()  # creating a clock object
 
@@ -162,6 +175,9 @@ def main():
         pygame.time.delay(50)  # This will delay the game so it doesn't run too quickly
         clock.tick(10)  # Will ensure our game runs at 10 FPS
         s.move()  # NEW
+        if s.body[0].pos == snack.pos:  # Checks if the head collides with the snack
+            s.addCube()  # Adds a new cube to the snake
+            snack = cube(randomSnack(rows, s), color=(0, 255, 0))  # creates a new snack object
         redrawWindow(win)  # This will refresh our screen
 
 main()
