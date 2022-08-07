@@ -48,6 +48,7 @@ class snake(object):
         pass
 
 
+# Ici sur la surface donnée on va dessiner les colonnes et lignes de notre grille
 def drawGrid(w, rows, surface):
     sizeBtwn = w // rows  # Gives us the distance between the lines
 
@@ -61,6 +62,7 @@ def drawGrid(w, rows, surface):
         pygame.draw.line(surface, (255,255,255), (0,y),(w,y))
 
 
+# on va définir notre surface comme voulu et appeler la method de drawGrid afin d'avoir l'entiereté de notre plateau de jeu
 def redrawWindow(surface):
     global rows, width
     surface.fill((0,0,0))  # Fills the screen with black
@@ -75,7 +77,11 @@ def randomSnack(rows, item):
 def message_box(subject, content):
     pass
 
-
+# Notre method main étant celle qui orchestre on va définir ici nos désirata en taille, colonnes etc
+# on va créer grâce à pygame notre fenetre de jeu
+# on crèe une clock pr le rafraichissement (pr les frames)
+# Installation de notre boucle de jeu afin de rafraichir notre jeu à chaque tick
+# de + installation de la définition du snake pr plus tard
 def main():
     global width, rows, s
     width = 500  # Width of our screen
