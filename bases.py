@@ -168,3 +168,62 @@
 # renart.sound()
 # renart.renarder()
 
+## Part 5
+# method
+
+# print("Nous allons multiplier deux nombres")
+# x = int(input("Votre premier nombre : "))
+# y = int(input("Votre deuxieme nombre : "))
+# print(x * y)
+#
+# print("Nous allons additionner deux nombres")
+# x = int(input("Votre premier nombre : "))
+# y = int(input("Votre deuxieme nombre : "))
+# print(x + y)
+
+##################################################
+
+# def obtenirDeuxNombresDeLutilisateur() :
+#     global x, y
+#     x = int(input("Votre premier nombre : "))
+#     y = int(input("Votre deuxieme nombre : "))
+#
+# print("Nous allons multiplier deux nombres")
+# obtenirDeuxNombresDeLutilisateur()
+# print(x * y)
+#
+# print("Nous allons additionner deux nombres")
+# obtenirDeuxNombresDeLutilisateur()
+# print(x + y)
+
+##################################################
+
+# def obtenirDeuxNombresDeLutilisateur() :
+#     global x, y
+#     x = int(input("Votre premier nombre : "))
+#     y = int(input("Votre deuxieme nombre : "))
+#
+# def multiplierDeuxNombres() :
+#     print("Nous allons multiplier deux nombres")
+#     obtenirDeuxNombresDeLutilisateur()
+#     print(x * y)
+#
+# multiplierDeuxNombres()
+# multiplierDeuxNombres()
+
+##################################################
+
+# def obtenirDeuxNombresDeLutilisateur() :
+#     global x, y
+#     x = int(input("Votre premier nombre : "))
+#     y = int(input("Votre deuxieme nombre : "))
+#
+# def multiplierDeuxNombres() :
+#     print("Nous allons multiplier deux nombres")
+#     obtenirDeuxNombresDeLutilisateur()
+#     print(x * y)
+#
+# flag = "c"
+# while flag != "q" :
+#     multiplierDeuxNombres()
+#     flag = str(input("Voulez-vous arreter ? (q) : "))
