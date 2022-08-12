@@ -22,10 +22,11 @@ class cube(object):
         self.dirny = dirny
         self.pos = (self.pos[0] + self.dirnx, self.pos[1] + self.dirny)
 
-    def draw(self, surface, eyes=False):
+    def draw(self, surface, cube_color, eyes=False):
         dis = self.w // self.rows
         i = self.pos[0]
         j = self.pos[1]
+        self.color = cube_color
 
         pygame.draw.rect(surface, self.color, (i * dis + 1, j * dis + 1, dis - 2, dis - 2))
         if eyes:
@@ -120,11 +121,13 @@ class snake(object):
         self.body[-1].dirny = dy
 
     def draw(self, surface):
+        rainbow_colors = [(255, 0, 0), (255, 165, 0), (255, 255, 0), (0, 128, 0), (0, 0, 255), (75, 0, 130), (238, 130, 238)]
         for i, c in enumerate(self.body):
+            ccolor = rainbow_colors[i % 7]
             if i == 0:
-                c.draw(surface, True)
+                c.draw(surface, ccolor, True)
             else:
-                c.draw(surface)
+                c.draw(surface, ccolor)
 
 
 def drawGrid(w, rows, surface):
@@ -144,7 +147,7 @@ def redrawWindow(surface):
     global rows, width, s, snack
     surface.fill((0, 0, 0))
     s.draw(surface)
-    snack.draw(surface)
+    snack.draw(surface, (0, 255, 0))
     drawGrid(width, rows, surface)
     pygame.display.update()
 
